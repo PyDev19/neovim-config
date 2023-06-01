@@ -1,0 +1,5 @@
+require('plugins')
+require('settings')
+require('mappings')
+require('config.completion')
+require('config.lsp')
