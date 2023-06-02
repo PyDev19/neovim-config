@@ -2,7 +2,7 @@ local options = {
 	defaults = {
 		file_ignore_patterns = {
 			"node_modules",
-			"env/*"
+			"env/*",
 		},
 		vimgrep_arguments = {
 			"rg",
@@ -34,7 +34,7 @@ local options = {
 			height = 0.80,
 			preview_cutoff = 120,
 		},
-		file_sorter = require("telescope.sorters").get_fuzzy_file,
+		ifile_sorter = require("telescope.sorters").get_fuzzy_file,
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
 		winblend = 0,
