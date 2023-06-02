@@ -32,11 +32,12 @@ return require("packer").startup(function(use)
 	-- Lazy load
 	-- Load when file type gets opened
 	use({
-		"akinsho/toggleterm.nvim",
+		"NvChad/nvterm",
 		tag = "*",
 		event = "BufReadPre",
 		config = function()
-			require('toggleterm').setup()
+			local options = require('config.nvterm')
+			require('nvterm').setup(options)
 		end,
 	})
 	use({
