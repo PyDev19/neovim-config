@@ -3,8 +3,8 @@ local options = {
 	clickable = true,
 	insert_at_end = true,
 	sidebar_filetypes = {
-    	NvimTree = true,
-  	}
+		NvimTree = true,
+	},
 }
 
 return options

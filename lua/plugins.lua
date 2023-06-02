@@ -36,8 +36,8 @@ return require("packer").startup(function(use)
 		tag = "*",
 		event = "BufReadPre",
 		config = function()
-			local options = require('config.nvterm')
-			require('nvterm').setup(options)
+			local options = require("config.nvterm")
+			require("nvterm").setup(options)
 		end,
 	})
 	use({

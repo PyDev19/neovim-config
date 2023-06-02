@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 -- Set indentation settings
-vim.opt.expandtab = false 
+vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
@@ -19,4 +19,3 @@ vim.opt.termguicolors = true
 -- Set line number options
 vim.wo.number = true
 vim.wo.relativenumber = false
-
