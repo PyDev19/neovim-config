@@ -57,3 +57,7 @@ lspconfig.pyright.setup({
 		},
 	},
 })
+
+lspconfig.marksman.setup({
+	capabilities = capabilities,
+})
