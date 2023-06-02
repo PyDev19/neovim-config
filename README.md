@@ -8,7 +8,7 @@ To use this NeoVim config, follow these steps:
 
 1. Clone this repository:
 
-   `git clone git clone https://github.com/PyDev19/neovim-config.git ~/.config/nvim`
+   `git clone https://github.com/PyDev19/neovim-config.git ~/.config/nvim`
 
 2. If you want to preserve your current NeoVim config, make sure to back it up before proceeding.
 
