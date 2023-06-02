@@ -32,6 +32,14 @@ return require("packer").startup(function(use)
 	-- Lazy load
 	-- Load when file type gets opened
 	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+	use ({
 		"NvChad/nvterm",
 		tag = "*",
 		event = "BufReadPre",
