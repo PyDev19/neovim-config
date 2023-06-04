@@ -44,6 +44,7 @@ map("i", "<C-S-p>", "<C-o>:", { noremap = true }) -- Enter Command Mode
 map("i", "<S-tab>", "<C-d>", options) -- Shift tab
 map("i", "<C-c>", '<C-o>"+yy', options) -- Copy line to system clipboard
 map("i", "<C-v>", '<C-o>"+p', options) -- Past from system clipboard
+map("i", "<C-Backspace>", "<C-O>db", options) -- Delete word before cursor
 
 -- Visual Mode
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", options) -- Move selected block up
