@@ -56,7 +56,7 @@ map("v", "<S-tab>", "<", options) -- Unindent selected block
 map("v", "<C-/>", "gc", options) -- Comment selected block
 map("v", "<C-c>", '"+y', options) -- Copy block to system block
 map("v", "<C-v>", '"+p', options) -- Paste block to system block
-map("v", "<C-x>", '"+yd', options) -- Copy and Cut block
+map("v", "<C-x>", '"+d', options) -- Copy and Cut block
 
 -- Terminal
 map("t", "<C-t>", "<C-\\><C-n>:lua toggle_terminal()<CR>", options) -- Close terminal in terminal mode
