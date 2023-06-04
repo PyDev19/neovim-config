@@ -32,6 +32,34 @@ return require("packer").startup(function(use)
 	-- Lazy load
 	-- Load when file type gets opened
 	use({
+		"luukvbaal/statuscol.nvim",
+		event="BufRead",
+		config = function()
+			local builtin = require("statuscol.builtin")
+			require("statuscol").setup({
+				relculright = true,
+				segments = {
+					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+					{ text = { "%s" }, click = "v:lua.ScSa" },
+					{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+				},
+			})
+		end,
+	})
+	use ({
+		"kevinhwang91/promise-async",
+		after="nvim-treesitter"
+	})
+	use({
+		"kevinhwang91/nvim-ufo",
+		after = "promise-async",
+		config = function()
+			local options = require("config.nvim_ufo")
+			require("ufo").setup(options)
+			vim.cmd([[hi Folded guibg=NONE]])
+		end,
+	})
+	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function()
@@ -39,7 +67,7 @@ return require("packer").startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
-	use ({
+	use({
 		"NvChad/nvterm",
 		tag = "*",
 		event = "BufReadPre",
