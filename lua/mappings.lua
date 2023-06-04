@@ -29,6 +29,7 @@ map("n", "<C-a>", "ggVG<CR>", options) -- Select all
 map("n", "<C-t>", ":lua toggle_terminal()<CR>", options) -- Toggle Terminal
 map("n", "<C-c>", '"+yy', options) -- Copy to system clipboard
 map("n", "<C-v>", '"+p', options) -- Paste to system clipboard
+map("n", "<C-x>", '"+yydd', options) -- Copy and Cut
 
 -- Insert Mode Keybinds
 map("i", "<C-n>", "<C-o>:NvimTreeToggle<CR>", options) -- Toggle NvimTree
@@ -45,6 +46,7 @@ map("i", "<S-tab>", "<C-d>", options) -- Shift tab
 map("i", "<C-c>", '<C-o>"+yy', options) -- Copy line to system clipboard
 map("i", "<C-v>", '<C-o>"+p', options) -- Past from system clipboard
 map("i", "<C-Backspace>", "<C-O>db", options) -- Delete word before cursor
+map("i", "<C-x>", '<esc>"+yyddi', options) -- Copy and Cut
 
 -- Visual Mode
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", options) -- Move selected block up
@@ -54,6 +56,7 @@ map("v", "<S-tab>", "<", options) -- Unindent selected block
 map("v", "<C-/>", "gc", options) -- Comment selected block
 map("v", "<C-c>", '"+y', options) -- Copy block to system block
 map("v", "<C-v>", '"+p', options) -- Paste block to system block
+map("v", "<C-x>", '"+yd', options) -- Copy and Cut block
 
 -- Terminal
 map("t", "<C-t>", "<C-\\><C-n>:lua toggle_terminal()<CR>", options) -- Close terminal in terminal mode
