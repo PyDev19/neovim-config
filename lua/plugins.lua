@@ -1,3 +1,4 @@
+local filetypes = { "python", "json", "lua", "sh", "text", "markdown", "cpp", "cmake", "make" }
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
@@ -15,10 +16,19 @@ return require("packer").startup(function(use)
 		"rafamadriz/friendly-snippets",
 		"hrsh7th/nvim-cmp",
 	})
+	-- use({
+	-- 	"folke/tokyonight.nvim",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme tokyonight-night")
+	-- 	end,
+	-- })
 	use({
-		"folke/tokyonight.nvim",
+		"navarasu/onedark.nvim",
 		config = function()
-			vim.cmd("colorscheme tokyonight-night")
+			require("onedark").setup({
+				style = "darker",
+			})
+			require("onedark").load()
 		end,
 	})
 	use({
@@ -28,12 +38,22 @@ return require("packer").startup(function(use)
 			require("barbar").setup(options)
 		end,
 	})
+	use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "auto",
+				},
+			})
+		end,
+	})
 
 	-- Lazy load
 	-- Load when file type gets opened
 	use({
 		"luukvbaal/statuscol.nvim",
-		event="BufRead",
+		event = "BufRead",
 		config = function()
 			local builtin = require("statuscol.builtin")
 			require("statuscol").setup({
@@ -46,9 +66,9 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	use ({
+	use({
 		"kevinhwang91/promise-async",
-		after="nvim-treesitter"
+		after = "nvim-treesitter",
 	})
 	use({
 		"kevinhwang91/nvim-ufo",
@@ -85,7 +105,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		ft = { "python", "json", "lua", "sh", "text", "markdown" },
+		ft = filetypes,
 		config = function()
 			local options = require("config.treesitter")
 			require("nvim-treesitter.configs").setup(options)
@@ -93,7 +113,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		ft = { "python", "json", "lua", "sh", "text", "markdown" },
+		ft = filetypes,
 		config = function()
 			local options = require("config.indent_blankline")
 			require("indent_blankline").setup(options)
@@ -101,14 +121,14 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"numToStr/Comment.nvim",
-		ft = { "python", "json", "lua", "sh", "text", "markdown" },
+		ft = filetypes,
 		config = function()
 			require("Comment").setup()
 		end,
 	})
 	use({
 		"windwp/nvim-autopairs",
-		ft = { "python", "json", "lua", "sh", "text", "markdown" },
+		ft = filetypes,
 		config = function()
 			require("nvim-autopairs").setup({
 				fast_wrap = {},
