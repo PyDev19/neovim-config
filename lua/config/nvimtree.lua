@@ -28,7 +28,7 @@ local options = {
 		},
 	},
 	renderer = {
-		root_folder_label = false,
+		root_folder_label = ":~:t",
 		highlight_git = false,
 		highlight_opened_files = "none",
 
