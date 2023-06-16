@@ -61,3 +61,11 @@ lspconfig.pyright.setup({
 lspconfig.marksman.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.bashls.setup({
+	capabilities = capabilities,
+})
