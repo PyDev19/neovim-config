@@ -3,7 +3,7 @@ local options = {
 	clickable = true,
 	insert_at_end = true,
 	sidebar_filetypes = {
-		NvimTree = true,
+		NvimTree = { text = "       File Explorer" },
 	},
 }
 
