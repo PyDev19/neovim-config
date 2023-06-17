@@ -40,7 +40,7 @@ local options = {
 				file = true,
 				folder = true,
 				folder_arrow = true,
-				git = true,
+				git = true
 			},
 		},
 	},
