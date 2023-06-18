@@ -52,6 +52,20 @@ return require("packer").startup(function(use)
 	-- Lazy load
 	-- Load when file type gets opened
 	use({
+		"utilyre/barbecue.nvim",
+		after = "nvim-navic",
+		tag = "*",
+		requires = {
+			{
+				"SmiteshP/nvim-navic",
+				event = "BufRead",
+			},
+		},
+		config = function()
+			require("barbecue").setup()
+		end,
+	})
+	use({
 		"luukvbaal/statuscol.nvim",
 		event = "BufRead",
 		config = function()
