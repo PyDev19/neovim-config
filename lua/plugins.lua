@@ -7,6 +7,8 @@ return require("packer").startup(function(use)
 	-- Normally loaded
 	use("nvim-lua/plenary.nvim")
 	use("nvim-tree/nvim-web-devicons")
+	use("folke/tokyonight.nvim")
+	use("navarasu/onedark.nvim")
 	use({
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",
@@ -15,21 +17,6 @@ return require("packer").startup(function(use)
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
 		"hrsh7th/nvim-cmp",
-	})
-	-- use({
-	-- 	"folke/tokyonight.nvim",
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme tokyonight-night")
-	-- 	end,
-	-- })
-	use({
-		"navarasu/onedark.nvim",
-		config = function()
-			require("onedark").setup({
-				style = "darker",
-			})
-			require("onedark").load()
-		end,
 	})
 	use({
 		"romgrk/barbar.nvim",
@@ -62,7 +49,9 @@ return require("packer").startup(function(use)
 			},
 		},
 		config = function()
-			require("barbecue").setup()
+			require("barbecue").setup({
+				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" }
+			})
 		end,
 	})
 	use({
