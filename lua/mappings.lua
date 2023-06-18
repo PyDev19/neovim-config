@@ -26,7 +26,8 @@ map("n", "<C-s>", ":w!<CR>", options) -- Save
 map("n", "<C-z>", "u<CR>", options) -- Undo
 map("n", "<C-y>", "<C-r><CR>", options) -- Redo
 map("n", "<C-a>", "ggVG<CR>", options) -- Select all
-map("n", "<C-t>", ":lua toggle_terminal()<CR>", options) -- Toggle Terminal
+map("n", "<C-t>", ":lua toggle_terminal()<CR>", options) -- Toggle Floating Terminal
+map("n", "<A-t>", ":terminal<CR>i", options) -- toggle terminal in buffer
 map("n", "<C-c>", '"+yy', options) -- Copy to system clipboard
 map("n", "<C-v>", '"+p', options) -- Paste to system clipboard
 map("n", "<C-x>", '"+yydd', options) -- Copy and Cut
@@ -36,7 +37,8 @@ map("i", "<C-n>", "<C-o>:NvimTreeToggle<CR>", options) -- Toggle NvimTree
 map("i", "<C-e>", "<esc>:NvimTreeFocus<CR>", options) -- Focus NvimTree
 map("i", "<C-w>", "<C-o>:BufferClose<CR>", options) -- Close current buffer
 map("i", "<A-w>", "<C-o>:BufferRestore<CR>", options) -- Restore last buffer
-map("i", "<C-t>", "<C-o>:lua toggle_terminal()<CR>", options) -- toggle terminal
+map("i", "<C-t>", "<C-o>:lua toggle_terminal()<CR>", options) -- toggle floating terminal
+map("i", "<A-t>", "<C-o>:terminal<CR>", options) -- toggle terminal in buffer
 map("i", "<C-z>", "<C-o>u", options) -- Undo
 map("i", "<C-y>", "<C-o><C-r>", options) -- Redo
 map("i", "<C-s>", "<C-o>:w!<CR>", options) -- Save and bring back to insert mode
@@ -45,7 +47,7 @@ map("i", "<C-S-p>", "<C-o>:", { noremap = true }) -- Enter Command Mode
 map("i", "<S-tab>", "<C-d>", options) -- Shift tab
 map("i", "<C-c>", '<C-o>"+yy', options) -- Copy line to system clipboard
 map("i", "<C-v>", '<C-o>"+p', options) -- Past from system clipboard
-map("i", "<C-Backspace>", "<C-O>db", options) -- Delete word before cursor
+map("i", "<C-Backspace>", "<C-W>", options) -- Delete word before cursor
 map("i", "<C-x>", '<esc>"+yyddi', options) -- Copy and Cut
 
 -- Visual Mode
