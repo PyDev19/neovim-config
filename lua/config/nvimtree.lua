@@ -42,6 +42,12 @@ local options = {
 				folder_arrow = true,
 				git = true
 			},
+			glyphs = {
+				git = {
+					unstaged = "M",
+					untracked = "U"
+				}
+			}
 		},
 	},
 	diagnostics = {
