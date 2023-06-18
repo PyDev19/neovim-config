@@ -4,11 +4,40 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	-- Normally loaded
+	-- Dependencies
 	use("nvim-lua/plenary.nvim")
 	use("nvim-tree/nvim-web-devicons")
+
+	-- Themes
 	use("folke/tokyonight.nvim")
-	use("navarasu/onedark.nvim")
+	use({
+		"navarasu/onedark.nvim",
+		config = function ()
+			require("config.themes")
+			require("onedark").load()
+		end
+	})
+
+	-- Dashboard/welcome screen
+	use({
+  		'glepnir/dashboard-nvim',
+  		event = 'VimEnter',
+  		config = function()
+    		local options = require("config.dashboard")
+			require("dashboard").setup(options)
+  		end,
+	})
+
+	-- Git Signes
+	use({
+		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
+		config = function ()
+			require('gitsigns').setup()
+		end
+	})
+
+	-- lsp and completion
 	use({
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",
@@ -18,6 +47,8 @@ return require("packer").startup(function(use)
 		"rafamadriz/friendly-snippets",
 		"hrsh7th/nvim-cmp",
 	})
+
+	-- bufferline for tabs for open buffers
 	use({
 		"romgrk/barbar.nvim",
 		config = function()
@@ -25,6 +56,8 @@ return require("packer").startup(function(use)
 			require("barbar").setup(options)
 		end,
 	})
+
+	-- lualine
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -36,8 +69,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Lazy load
-	-- Load when file type gets opened
+	-- Winbar for document symbols
 	use({
 		"utilyre/barbecue.nvim",
 		after = "nvim-navic",
@@ -50,10 +82,12 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("barbecue").setup({
-				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" }
+				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" },
 			})
 		end,
 	})
+
+	-- status column for code folding arrows
 	use({
 		"luukvbaal/statuscol.nvim",
 		event = "BufRead",
@@ -69,6 +103,8 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+	-- Code folding
 	use({
 		"kevinhwang91/promise-async",
 		after = "nvim-treesitter",
@@ -82,6 +118,8 @@ return require("packer").startup(function(use)
 			vim.cmd([[hi Folded guibg=NONE]])
 		end,
 	})
+
+	-- Markdown preview
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -90,6 +128,8 @@ return require("packer").startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
+
+	-- NvTerm for floating, horizontal, and vertical terminals
 	use({
 		"NvChad/nvterm",
 		tag = "*",
@@ -99,6 +139,8 @@ return require("packer").startup(function(use)
 			require("nvterm").setup(options)
 		end,
 	})
+
+	-- Linting and Formatting
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufRead",
@@ -106,6 +148,8 @@ return require("packer").startup(function(use)
 			require("config.null_ls")
 		end,
 	})
+
+	-- Syntax Highlighting
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		ft = filetypes,
@@ -114,6 +158,8 @@ return require("packer").startup(function(use)
 			require("nvim-treesitter.configs").setup(options)
 		end,
 	})
+
+	-- Automatically indent blankline
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		ft = filetypes,
@@ -122,6 +168,8 @@ return require("packer").startup(function(use)
 			require("indent_blankline").setup(options)
 		end,
 	})
+
+	-- For commenting mulitple lines at the same time
 	use({
 		"numToStr/Comment.nvim",
 		ft = filetypes,
@@ -129,6 +177,8 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
+
+	-- Auto pairing for curly braces, brackets, parenthesis, etc..
 	use({
 		"windwp/nvim-autopairs",
 		ft = filetypes,
@@ -140,7 +190,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Load when a command is run
+	-- File Tree
 	use({
 		"nvim-tree/nvim-tree.lua",
 		opt = true,
@@ -151,6 +201,8 @@ return require("packer").startup(function(use)
 			require("nvim-tree").setup(options)
 		end,
 	})
+
+	-- Telescope for alot of stuff
 	use({
 		"nvim-telescope/telescope.nvim",
 		opt = true,
