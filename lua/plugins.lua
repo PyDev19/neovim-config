@@ -133,7 +133,7 @@ return require("packer").startup(function(use)
 	use({
 		"NvChad/nvterm",
 		tag = "*",
-		event = "BufReadPre",
+		event = "VimEnter",
 		config = function()
 			local options = require("config.nvterm")
 			require("nvterm").setup(options)
@@ -212,5 +212,10 @@ return require("packer").startup(function(use)
 			local options = require("config.telescope")
 			require("telescope").setup(options)
 		end,
+	})
+
+	use({
+		"mg979/vim-visual-multi",
+		event="BufRead"
 	})
 end)
