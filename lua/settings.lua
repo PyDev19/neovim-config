@@ -28,3 +28,6 @@ vim.o.foldenable = true
 
 -- disable line numbers in terminal
 vim.cmd([[autocmd TermOpen * setlocal nonumber]])
+
+-- set vim to use system clipboard
+vim.cmd([[set clipboard+=unnamedplus]])

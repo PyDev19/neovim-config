@@ -14,7 +14,7 @@ end
 
 -- Normal Mode Keybinds
 -- Git
-map("n", "<leader>g", ":Telescope git_status<CR>", options) -- Status
+map("n", "<leader>gs", ":Telescope git_status<CR>", options) -- Status
 map("n", "<leader>gb", ":Telescope git_branches<CR>", options) -- Branches
 map("n", "<leader>gc", ":Telescope git_commits<CR>", options) -- Commits
 map("n", "<leader>gf", ":Telescope git_files<CR>", options) -- Files
@@ -48,9 +48,9 @@ map("n", "<C-s>", ":w!<CR>", options) -- Save
 map("n", "<C-z>", "u<CR>", options) -- Undo
 map("n", "<C-y>", "<C-r><CR>", options) -- Redo
 map("n", "<C-a>", "ggVG<CR>", options) -- Select all
-map("n", "<C-c>", '"+yy', options) -- Copy to system clipboard
-map("n", "<C-v>", '"+p', options) -- Paste to system clipboard
-map("n", "<C-x>", '"+yydd', options) -- Copy and Cut
+map("n", "<C-c>", 'yy', options) -- Copy to system clipboard
+map("n", "<C-v>", 'p', options) -- Paste to system clipboard
+map("n", "<C-x>", 'yydd', options) -- Copy and Cut
 
 -- Insert Mode Keybinds
 -- Buffers
@@ -63,12 +63,12 @@ map("i", "<C-z>", "<C-o>u", options) -- Undo
 map("i", "<C-y>", "<C-o><C-r>", options) -- Redo
 map("i", "<C-s>", "<C-o>:w!<CR>", options) -- Save
 map("i", "<C-f>", "<C-o>:/", { noremap = true }) -- Find
-map("i", "<C-S-p>", "<C-o>:", { noremap = true }) -- Enter Quick Command Mode
+map("i", "<C-S-p>", "<ESC>:", { noremap = true }) -- Enter Quick Command Mode
 map("i", "<S-tab>", "<C-d>", options) -- Shift tab
-map("i", "<C-c>", '<C-o>"+yy', options) -- Copy line to system clipboard
-map("i", "<C-v>", '<C-o>"+p', options) -- Past from system clipboard
+map("i", "<C-c>", '<C-o>yy', options) -- Copy line to system clipboard
+map("i", "<C-v>", '<C-o>p', options) -- Past from system clipboard
 map("i", "<C-Backspace>", "<C-W>", options) -- Delete word before cursor
-map("i", "<C-x>", '<esc>"+yyddi', options) -- Copy and Cut
+map("i", "<C-x>", '<esc>yyddi', options) -- Copy and Cut
 
 -- Visual Mode
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", options) -- Move selected block up
@@ -76,9 +76,9 @@ map("v", "<S-Down>", ":m '>+1<CR>gv=gv", options) -- Move selected block down
 map("v", "<tab>", ">", options) -- Indent selected block
 map("v", "<S-tab>", "<", options) -- Unindent selected block
 map("v", "<C-k>", "gc", options) -- Comment selected block
-map("v", "<C-c>", '"+y', options) -- Copy block to system block
-map("v", "<C-v>", '"+p', options) -- Paste block to system block
-map("v", "<C-x>", '"+d', options) -- Copy and Cut block
+map("v", "<C-c>", 'y', options) -- Copy block
+map("v", "<C-v>", 'p', options) -- Paste block
+map("v", "<C-x>", 'd', options) -- Copy and Cut block
 
 -- Terminal
 map("t", "<C-q>", "<C-\\><C-n>:q<CR>", options) -- Close terminal in terminal mode
