@@ -1,8 +1,6 @@
 require("plugins")
 require("settings")
 require("mappings")
-require("config.completion")
-require("config.lsp")
 
 -- for neovide
 if vim.g.neovide then
