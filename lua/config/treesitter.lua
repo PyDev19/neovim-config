@@ -1,5 +1,22 @@
 local options = {
-	ensure_installed = { "lua", "python", "json" },
+	ensure_installed = {
+		"lua",
+		"python",
+		"json",
+		"cpp",
+		"cmake",
+		"make",
+		"javascript",
+		"typescript",
+		"html",
+		"css",
+		"bash",
+		"markdown",
+		"gitignore",
+		"vim",
+		"regex",
+		"markdown_inline"
+	},
 
 	highlight = {
 		enable = true,
@@ -7,6 +24,7 @@ local options = {
 	},
 
 	indent = { enable = true },
+	tree_docs = { enable = true }
 }
 
 return options
