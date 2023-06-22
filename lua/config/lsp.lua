@@ -1,5 +1,3 @@
-require("mason").setup()
-
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem = {
@@ -21,6 +19,7 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 require("lspconfig").lua_ls.setup({
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -67,5 +66,9 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.bashls.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.cmake.setup({
 	capabilities = capabilities,
 })
