@@ -40,6 +40,10 @@ local plugins = {
 	{
 		"romgrk/barbar.nvim",
 		event = "VeryLazy",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
 		config = function()
 			local options = require("config.tabbar")
 			require("barbar").setup(options)
@@ -54,7 +58,7 @@ local plugins = {
 		},
 		config = function()
 			require("barbecue").setup({
-				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" },	
+				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" },
 			})
 		end,
 	},
