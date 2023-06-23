@@ -11,6 +11,7 @@
 This is my custom NeoVim config, designed to resemble the features and functionality of VSCode.
 
 ## Installation
+
 ### Linux/Mac OS
 #### Make a backup of your old neovim config (if you have one)
 ```bash
@@ -19,5 +20,16 @@ mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
 #### Clone this repository
 ```bash
-git clone --depth 1 https://github.com/pydev19/nvim-config ~/.config/nvim 
+git clone --depth 1 https://github.com/pydev19/nvim-config ~/.config/nvim
+```
+
+### Windows
+#### Make a backup of your old neovim config (if you have one)
+```bash
+Rename-Item -Path $env:LOCALAPPDATA\nvim -NewName $env:LOCALAPPDATA\nvim.bak
+Rename-Item -Path $env:LOCALAPPDATA\nvim-data -NewName $env:LOCALAPPDATA\nvim-data.bak
+```
+#### Clone this repository
+```bash
+git clone --depth 1 https://github.com/pydev19/nvim-config ~/.config/nvim
 ```
