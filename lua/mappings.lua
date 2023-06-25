@@ -27,9 +27,9 @@ map("n", "<leader>tf", ":lua toggle_terminal(3)<CR>", options) -- Floating Termi
 -- Theme Picker
 map("n", "<leader>th", ":Telescope colorscheme<CR>", options)
 
--- NvimTree
-map("n", "<leader>fe", ":NvimTreeToggle<CR>", options) -- Toggle
-map("n", "<leader>e", ":NvimTreeFocus<CR>", options) -- Focus
+-- Neo Tree
+map("n", "<leader>fe", ":Neotree toggle<CR>", options) -- Toggle
+map("n", "<leader>e", ":Neotree focus<CR>", options) -- Focus
 
 -- Format Code
 map("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true }) print('formatted')<CR>", options)
