@@ -16,20 +16,21 @@ local plugins = {
 		end,
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-		version = "*",
+		"nvim-neo-tree/neo-tree.nvim",
+		version = "v2.x",
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			local options = require("config.nvimtree")
-			require("nvim-tree").setup(options)
+			local options = require("config.neo-tree")
+			require("neo-tree").setup(options)
 		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
+		lazy = true,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("lualine").setup({
@@ -38,15 +39,10 @@ local plugins = {
 		end,
 	},
 	{
-		"romgrk/barbar.nvim",
+		"rebelot/heirline.nvim",
 		event = "VeryLazy",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
 		config = function()
-			local options = require("config.tabbar")
-			require("barbar").setup(options)
+			require("config.heirline")
 		end,
 	},
 	{
