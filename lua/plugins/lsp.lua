@@ -13,7 +13,6 @@ local plugins = {
 		dependencies = {
 			"nvim-treesitter/nvim-tree-docs",
 		},
-		build = "TSUpdate",
 		config = function()
 			local options = require("config.treesitter")
 			require("nvim-treesitter.configs").setup(options)
