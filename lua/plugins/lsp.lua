@@ -30,7 +30,7 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = "InsertEnter",
+		event = "BufRead",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"L3MON4D3/LuaSnip",
