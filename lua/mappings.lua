@@ -38,9 +38,9 @@ map("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true }) print('formatt
 map("n", "<leader>ff", ":Telescope find_files<CR>", options)
 
 -- Buffers
-map("n", "<C-w>", ":BufferClose<CR>", options) -- Close current buffer
-map("n", "<C-S-t>", ":BufferRestor<CR>", options) -- Restore previous buffer
-map("n", "<tab>", ":BufferNext<CR>", options) -- Goto next buffer
+map("n", "<C-w>", ":bdelete<CR>", options) -- Close current buffer
+map("n", "<S-tab>", ":bp<CR>", options) -- Goto previous buffer
+map("n", "<tab>", ":bn<CR>", options) -- Goto next buffer
 
 -- Common Keybinds
 map("n", "<esc>", ":noh<CR>", options) -- Clear highlighting
@@ -48,27 +48,30 @@ map("n", "<C-s>", ":w!<CR>", options) -- Save
 map("n", "<C-z>", "u<CR>", options) -- Undo
 map("n", "<C-y>", "<C-r><CR>", options) -- Redo
 map("n", "<C-a>", "ggVG<CR>", options) -- Select all
-map("n", "<C-c>", 'yy', options) -- Copy to system clipboard
-map("n", "<C-v>", 'p', options) -- Paste to system clipboard
-map("n", "<C-x>", 'yydd', options) -- Copy and Cut
+map("n", "<C-c>", "yy", options) -- Copy to system clipboard
+map("n", "<C-v>", "p", options) -- Paste to system clipboard
+map("n", "<C-x>", "yydd", options) -- Copy and Cut
+map("n", "<C-e>", ":Neotree toggle filesystem<CR>", options)
+map("n", "<C-g>", ":Neotree toggle git_status<CR>", options)
+map("n", "<C-t>", ":Neotree toggle document_symbols<CR>", options)
 
 -- Insert Mode Keybinds
 -- Buffers
-map("i", "<C-w>", "<C-o>:BufferClose<CR>", options) -- Close current buffer
-map("i", "<C-S-t>", "<C-o>:BufferRestore<CR>", options) -- Restore last buffer
-map("i", "<C-tab>", "<C-o>:BufferNext<CR>", options) -- Goto next buffer
+map("i", "<C-w>", "<C-o>:bdelete<CR>", options) -- Close current buffer
+map("i", "<C-S-tab>", "<C-o>:bp<CR>", options) -- Goto previous buffer
+map("i", "<C-tab>", "<C-o>:bn<CR>", options) -- Goto next buffer
 
 -- Common Keybinds
 map("i", "<C-z>", "<C-o>u", options) -- Undo
 map("i", "<C-y>", "<C-o><C-r>", options) -- Redo
 map("i", "<C-s>", "<C-o>:w!<CR>", options) -- Save
-map("i", "<C-f>", "<C-o>:/", { noremap = true }) -- Find
-map("i", "<C-S-p>", "<ESC>:", { noremap = true }) -- Enter Quick Command Mode
+map("i", "<C-f>", "<C-o>/", { noremap = true }) -- Find
+map("i", "<C-S-p>", "<C-o>:", { noremap = true }) -- Enter Quick Command Mode
 map("i", "<S-tab>", "<C-d>", options) -- Shift tab
-map("i", "<C-c>", '<C-o>yy', options) -- Copy line to system clipboard
-map("i", "<C-v>", '<C-o>p', options) -- Past from system clipboard
+map("i", "<C-c>", "<C-o>yy", options) -- Copy line to system clipboard
+map("i", "<C-v>", "<C-o>p", options) -- Past from system clipboard
 map("i", "<C-Backspace>", "<C-W>", options) -- Delete word before cursor
-map("i", "<C-x>", '<esc>yyddi', options) -- Copy and Cut
+map("i", "<C-x>", "<esc>yyddi", options) -- Copy and Cut
 
 -- Visual Mode
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", options) -- Move selected block up
@@ -76,9 +79,9 @@ map("v", "<S-Down>", ":m '>+1<CR>gv=gv", options) -- Move selected block down
 map("v", "<tab>", ">", options) -- Indent selected block
 map("v", "<S-tab>", "<", options) -- Unindent selected block
 map("v", "<C-k>", "gc", options) -- Comment selected block
-map("v", "<C-c>", 'y', options) -- Copy block
-map("v", "<C-v>", 'p', options) -- Paste block
-map("v", "<C-x>", 'd', options) -- Copy and Cut block
+map("v", "<C-c>", "y", options) -- Copy block
+map("v", "<C-v>", "p", options) -- Paste block
+map("v", "<C-x>", "d", options) -- Copy and Cut block
 
 -- Terminal
 map("t", "<C-q>", "<C-\\><C-n>:q<CR>", options) -- Close terminal in terminal mode
