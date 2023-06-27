@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
@@ -18,7 +19,11 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
+local on_attach = function(client, bufnr)
+end
+
 require("lspconfig").lua_ls.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		Lua = {
@@ -41,6 +46,7 @@ require("lspconfig").lua_ls.setup({
 })
 
 lspconfig.pyright.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		pyright = {
@@ -49,8 +55,8 @@ lspconfig.pyright.setup({
 		python = {
 			analysis = {
 				autoSearchPaths = true,
-				diagnosticMode = "workspace",
-				useLibraryCodeForTypes = true,
+				diagnosticMode = "openFilesOnly",
+				useLibraryCodeForTypes = false,
 				typeCheckingMode = "off",
 			},
 		},
@@ -58,17 +64,21 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.marksman.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 lspconfig.clangd.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 lspconfig.bashls.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
 lspconfig.cmake.setup({
+	n_attach = on_attach,
 	capabilities = capabilities,
 })
