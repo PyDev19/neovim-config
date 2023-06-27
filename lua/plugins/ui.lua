@@ -1,6 +1,14 @@
 -- ui related plugin
 local plugins = {
 	{
+		"DaikyXendo/nvim-material-icon",
+		config = function()
+			require("nvim-material-icon").setup({
+				color_icons = true,
+			})
+		end,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.1",
 		cmd = { "Telescope" },
@@ -18,6 +26,7 @@ local plugins = {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "v2.x",
+		cmd = { "Neotree" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -29,33 +38,10 @@ local plugins = {
 		end,
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		lazy = true,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("lualine").setup({
-				theme = "auto",
-			})
-		end,
-	},
-	{
 		"rebelot/heirline.nvim",
-		event = "VeryLazy",
+		event = "BufRead",
 		config = function()
 			require("config.heirline")
-		end,
-	},
-	{
-		"utilyre/barbecue.nvim",
-		version = "*",
-		event = "BufRead",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-		},
-		config = function()
-			require("barbecue").setup({
-				exclude_filetypes = { "netrw", "toggleterm", "NvimTree", "" },
-			})
 		end,
 	},
 	{
@@ -85,9 +71,9 @@ local plugins = {
 			require("statuscol").setup({
 				relculright = true,
 				segments = {
-					{ text = { builtin.foldfunc },      click = "v:lua.ScFa" },
-					{ text = { "%s" },                  click = "v:lua.ScSa" },
-					{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+					{ text = { "%s" }, click = "v:lua.ScSa" },
+					{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
 				},
 			})
 		end,
