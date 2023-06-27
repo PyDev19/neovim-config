@@ -51,9 +51,9 @@ map("n", "<C-a>", "ggVG<CR>", options) -- Select all
 map("n", "<C-c>", "yy", options) -- Copy to system clipboard
 map("n", "<C-v>", "p", options) -- Paste to system clipboard
 map("n", "<C-x>", "yydd", options) -- Copy and Cut
-map("n", "<C-e>", ":Neotree toggle filesystem<CR>", options)
-map("n", "<C-g>", ":Neotree toggle git_status<CR>", options)
-map("n", "<C-t>", ":Neotree toggle document_symbols<CR>", options)
+map("n", "<C-e>", ":Neotree toggle left filesystem<CR>", options)
+map("n", "<C-g>", ":Neotree toggle left git_status<CR>", options)
+map("n", "<C-t>", ":Neotree toggle left document_symbols<CR>", options)
 
 -- Insert Mode Keybinds
 -- Buffers
