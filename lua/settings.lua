@@ -31,3 +31,16 @@ vim.cmd([[autocmd TermOpen * setlocal nonumber]])
 
 -- set vim to use system clipboard
 vim.cmd([[set clipboard+=unnamedplus]])
+
+-- Disable statusline in alpha
+vim.cmd([[
+augroup AutoCmds
+  autocmd!
+  autocmd FileType alpha set laststatus=1
+  autocmd FileType * if &filetype != 'alpha' | set laststatus=3 | endif
+augroup END
+]])
+
+
+-- set global statusline
+vim.o.laststatus = 3
