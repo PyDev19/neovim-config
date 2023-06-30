@@ -6,7 +6,7 @@ local ViMode = require("config.statusline.vimode")
 local FileNameBlock = require("config.statusline.filenameblock")
 local Git = require("config.statusline.git")
 local Diagnostics = require("config.statusline.diagnostics")
-local FileType, FileEncoding = require("config.statusline.others")
+local FileType = require("config.statusline.others")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
