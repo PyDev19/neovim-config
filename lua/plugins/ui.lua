@@ -17,7 +17,7 @@ local plugins = {
 			"nvim-telescope/telescope-project.nvim",
 		},
 		config = function()
-			local options = require("config.telescope")
+			local options = require("config.ui.telescope")
 			require("telescope").setup(options)
 			require("telescope").load_extension("project")
 			require("telescope").load_extension("noice")
@@ -29,8 +29,8 @@ local plugins = {
 		dependencies = {
 			"DaikyXendo/nvim-material-icon",
 		},
-		config = function ()
-			local options = require("config.cokeline")
+		config = function()
+			local options = require("config.ui.cokeline")
 			require("cokeline").setup(options)
 		end
 	},
@@ -44,7 +44,7 @@ local plugins = {
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			local options = require("config.neo-tree")
+			local options = require("config.ui.neo-tree")
 			require("neo-tree").setup(options)
 		end,
 	},
@@ -52,7 +52,7 @@ local plugins = {
 		"rebelot/heirline.nvim",
 		event = "BufRead",
 		config = function()
-			require("config.heirline")
+			require("config.ui.heirline")
 		end,
 	},
 	{
@@ -63,7 +63,7 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 		config = function()
-			local options = require("config.noice")
+			local options = require("config.ui.noice")
 			require("noice").setup(options)
 		end,
 	},
@@ -103,7 +103,7 @@ local plugins = {
 		event = "BufRead",
 		dependencies = "kevinhwang91/promise-async",
 		config = function()
-			local options = require("config.nvim_ufo")
+			local options = require("config.ui.nvim_ufo")
 			require("ufo").setup(options)
 			vim.cmd([[hi Folded guibg=NONE]])
 		end,
@@ -113,7 +113,7 @@ local plugins = {
 		version = "*",
 		lazy = true,
 		config = function()
-			local options = require("config.nvterm")
+			local options = require("config.ui.nvterm")
 			require("nvterm").setup(options)
 		end,
 	},
@@ -134,7 +134,7 @@ local plugins = {
 		event = "VimEnter",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			local dashboard = require("config.dashboard")
+			local dashboard = require("config.ui.dashboard")
 			if vim.o.filetype == "lazy" then
 				vim.cmd.close()
 				vim.api.nvim_create_autocmd("User", {
