@@ -14,7 +14,7 @@ local plugins = {
 			"nvim-treesitter/nvim-tree-docs",
 		},
 		config = function()
-			local options = require("config.treesitter")
+			local options = require("config.lsp.treesitter")
 			require("nvim-treesitter.configs").setup(options)
 		end,
 	},
@@ -39,8 +39,8 @@ local plugins = {
 			"hrsh7th/nvim-cmp",
 		},
 		config = function()
-			require("config.completion")
-			require("config.lsp")
+			require("config.lsp.completion")
+			require("config.lsp.lsp")
 		end,
 	},
 	{
@@ -49,7 +49,7 @@ local plugins = {
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason").setup()
-			require("config.null_ls")
+			require("config.lsp.null_ls")
 		end,
 	},
 }
