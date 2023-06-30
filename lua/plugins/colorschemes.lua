@@ -4,7 +4,7 @@ local plugins = {
 		"folke/tokyonight.nvim",
 		lazy = true,
 		config = function()
-			local options = require("config.themes").get_theme_opts(1)
+			local options = require("config.others.themes").get_theme_opts(1)
 			require("tokyonight").setup(options)
 		end,
 	},
@@ -12,7 +12,7 @@ local plugins = {
 		"navarasu/onedark.nvim",
 		--lazy = true,
 		config = function()
-			local options = require("config.themes").get_theme_opts(2)
+			local options = require("config.others.themes").get_theme_opts(2)
 			require("onedark").setup(options)
 			require("onedark").load()
 		end,
@@ -22,7 +22,7 @@ local plugins = {
 		priority = 1000,
 		lazy = true,
 		config = function()
-			local options = require("config.themes").get_theme_opts(3)
+			local options = require("config.others.themes").get_theme_opts(3)
 			require("onedarkpro").setup(options)
 			--require("onedarkpro").load()
 		end,
@@ -31,7 +31,7 @@ local plugins = {
 		"ellisonleao/gruvbox.nvim",
 		lazy = true,
 		config = function()
-			local options = require("config.themes").get_theme_opts(4)
+			local options = require("config.others.themes").get_theme_opts(4)
 			require("gruvbox").setup(options)
 		end,
 	},
@@ -39,7 +39,7 @@ local plugins = {
 		"rebelot/kanagawa.nvim",
 		lazy = true,
 		config = function()
-			local options = require("config.themes").get_theme_opts(5)
+			local options = require("config.others.themes").get_theme_opts(5)
 			require("kanagawa").setup(options)
 		end,
 	},
@@ -48,7 +48,7 @@ local plugins = {
 		lazy=true,
 		name = "catppuccin",
 		config = function ()
-			local options = require("config.themes").get_theme_opts(6)
+			local options = require("config.others.themes").get_theme_opts(6)
 			require("catppuccin").setup(options)
 			require("catppuccin").load()
 		end

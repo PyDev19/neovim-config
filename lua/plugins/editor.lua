@@ -7,7 +7,7 @@ local plugins = {
 		"lukas-reineke/indent-blankline.nvim",
 		event = "InsertEnter",
 		config = function()
-			local options = require("config.indent_blankline")
+			local options = require("config.others.indent_blankline")
 			require("indent_blankline").setup(options)
 		end,
 	},
