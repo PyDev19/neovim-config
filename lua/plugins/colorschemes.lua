@@ -10,19 +10,21 @@ local plugins = {
 	},
 	{
 		"navarasu/onedark.nvim",
-		lazy = true,
+		--lazy = true,
 		config = function()
 			local options = require("config.themes").get_theme_opts(2)
 			require("onedark").setup(options)
+			require("onedark").load()
 		end,
 	},
 	{
 		"olimorris/onedarkpro.nvim",
+		priority = 1000,
 		lazy = true,
 		config = function()
 			local options = require("config.themes").get_theme_opts(3)
 			require("onedarkpro").setup(options)
-			require("onedarkpro").load()
+			--require("onedarkpro").load()
 		end,
 	},
 	{
@@ -31,7 +33,6 @@ local plugins = {
 		config = function()
 			local options = require("config.themes").get_theme_opts(4)
 			require("gruvbox").setup(options)
-			require("gruvbox").load()
 		end,
 	},
 	{
@@ -40,13 +41,12 @@ local plugins = {
 		config = function()
 			local options = require("config.themes").get_theme_opts(5)
 			require("kanagawa").setup(options)
-			require("kanagawa").load()
 		end,
 	},
 	{
 		"catppuccin/nvim",
+		lazy=true,
 		name = "catppuccin",
-		priority = 1000,
 		config = function ()
 			local options = require("config.themes").get_theme_opts(6)
 			require("catppuccin").setup(options)
