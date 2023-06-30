@@ -20,7 +20,7 @@ vim.opt.termguicolors = true
 vim.wo.number = true
 vim.wo.relativenumber = false
 
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
@@ -40,7 +40,3 @@ augroup AutoCmds
   autocmd FileType * if &filetype != 'alpha' | set laststatus=3 | endif
 augroup END
 ]])
-
-
--- set global statusline
-vim.o.laststatus = 3
