@@ -24,6 +24,17 @@ local plugins = {
 		end,
 	},
 	{
+		"willothy/nvim-cokeline",
+		event = "VeryLazy",
+		dependencies = {
+			"DaikyXendo/nvim-material-icon",
+		},
+		config = function ()
+			local options = require("config.cokeline")
+			require("cokeline").setup(options)
+		end
+	},
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "v2.x",
 		cmd = { "Neotree" },
