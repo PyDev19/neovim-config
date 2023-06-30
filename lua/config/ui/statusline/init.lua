@@ -2,11 +2,11 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 local colors = require("onedark.palette")
 
-local ViMode = require("config.statusline.vimode")
-local FileNameBlock = require("config.statusline.filenameblock")
-local Git = require("config.statusline.git")
-local Diagnostics = require("config.statusline.diagnostics")
-local FileType = require("config.statusline.others")
+local ViMode = require("config.ui.statusline.vimode")
+local FileNameBlock = require("config.ui.statusline.filenameblock")
+local Git = require("config.ui.statusline.git")
+local Diagnostics = require("config.ui.statusline.diagnostics")
+local FileType = require("config.ui.statusline.others")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
