@@ -1,5 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
+local Seperator = { provider = " | " }
 
 local Git = {
 	condition = conditions.is_git_repo,
@@ -10,10 +11,10 @@ local Git = {
 	end,
 
 	hl = { fg = "orange" },
-
+	Seperator,
 	{ -- git branch name
 		provider = function(self)
-			return " " .. self.status_dict.head
+			return "" .. self.status_dict.head
 		end,
 		hl = { bold = true },
 	},
@@ -22,34 +23,30 @@ local Git = {
 		condition = function(self)
 			return self.has_changes
 		end,
-		provider = "(",
+		provider = " ",
 	},
 	{
 		provider = function(self)
 			local count = self.status_dict.added or 0
 			return count > 0 and ("+" .. count)
 		end,
-		hl = { fg = utils.get_highlight("diffDeleted").fg },
+		hl = { fg = utils.get_highlight("diffAdded").fg },
 	},
+	{ provider = " " },
 	{
 		provider = function(self)
 			local count = self.status_dict.removed or 0
 			return count > 0 and ("-" .. count)
 		end,
-		hl = { fg = utils.get_highlight("diffAdded").fg },
+		hl = { fg = utils.get_highlight("diffDeleted").fg },
 	},
+	{ provider = " " },
 	{
 		provider = function(self)
 			local count = self.status_dict.changed or 0
 			return count > 0 and ("~" .. count)
 		end,
 		hl = { fg = utils.get_highlight("diffChanged").fg },
-	},
-	{
-		condition = function(self)
-			return self.has_changes
-		end,
-		provider = ")",
 	},
 }
 

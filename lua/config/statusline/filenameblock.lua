@@ -1,5 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
+local Seperator = { provider = " | " }
 
 local TempFileNameBlock = {
 	-- let's first set up some attributes needed by this component and it's children
@@ -72,6 +73,7 @@ local FileNameModifer = {
 -- let's add the children to our FileNameBlock component
 local FileNameBlock = utils.insert(
 	TempFileNameBlock,
+	Seperator,
 	FileIcon,
 	utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
 	FileFlags,

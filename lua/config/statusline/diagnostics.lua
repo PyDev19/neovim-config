@@ -1,5 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
+local Seperator = { provider = " | " }
 
 local Diagnostics = {
 	condition = conditions.has_diagnostics,
@@ -19,7 +20,7 @@ local Diagnostics = {
 	end,
 
 	update = { "DiagnosticChanged", "BufEnter" },
-
+	Seperator,
 	{
 		provider = function(self)
 			-- 0 is just another output, we can decide to print it or not!

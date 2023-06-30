@@ -1,13 +1,16 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
-
-local Align = { provider = "%=" }
-local Space = { provider = " " }
+local colors = require("onedark.palette")
 
 local ViMode = require("config.statusline.vimode")
 local FileNameBlock = require("config.statusline.filenameblock")
 local Git = require("config.statusline.git")
 local Diagnostics = require("config.statusline.diagnostics")
+local FileType, FileEncoding = require("config.statusline.others")
+
+local Align = { provider = "%=" }
+local Space = { provider = " " }
+local Seperator = { provider = " | " }
 
 local Ruler = {
 	-- %l = current line number
@@ -36,43 +39,41 @@ local LspActive = {
 		"LspAttach",
 		"LspDetach",
 	},
-
-	-- You can keep it simple,
-	-- provider = " [LSP]",
-
-	-- Or complicate things a bit and get the servers names
-	provider = function()
-		local names = {}
-		for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-			table.insert(names, server.name)
-	end
-		return " [" .. table.concat(names, " ") .. "]"
-	end,
-	hl = { fg = "green", bold = true },
-	on_click = {
-		name = "heirline_lsp",
-		callback = function()
-			vim.defer_fn(function()
-				vim.cmd.LspInfo()
-			end, 100)
+	{
+		provider = function()
+			local names = {}
+			for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+				table.insert(names, server.name)
+			end
+			return table.concat(names, " ")
 		end,
+		hl = { fg = "green", bold = true },
+		on_click = {
+			name = "heirline_lsp",
+			callback = function()
+				vim.defer_fn(function()
+					vim.cmd.LspInfo()
+				end, 100)
+			end,
+		},
 	},
+	Seperator,
 }
+
+local LeftComponent = utils.surround({ "", "" }, colors.dark.bg2, { ViMode, FileNameBlock, Git, Diagnostics })
+
+local RightComponent = utils.surround(
+	{ "", "" },
+	colors.dark.bg2,
+	{ LspActive, FileType, Ruler, Space, ScrollBar }
+)
 
 local Statusline = {
-	ViMode,
-	Space,
-	FileNameBlock,
-	Space,
-	Git,
-	Space,
-	Diagnostics,
+	LeftComponent,
 	Align,
-	LspActive,
-	Space,
-	Ruler,
-	Space,
-	ScrollBar,
+	RightComponent,
 }
+
+vim.cmd("hi StatusLine guibg=" .. colors.dark.bg0)
 
 return Statusline
