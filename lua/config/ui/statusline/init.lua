@@ -1,6 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
-local colors = require("onedark.palette")
+local colors = require('onedark.colors')
 
 local ViMode = require("config.ui.statusline.vimode")
 local FileNameBlock = require("config.ui.statusline.filenameblock")
@@ -60,11 +60,11 @@ local LspActive = {
 	Seperator,
 }
 
-local LeftComponent = utils.surround({ "", "" }, colors.dark.bg2, { ViMode, FileNameBlock, Git, Diagnostics })
+local LeftComponent = utils.surround({ "", "" }, colors.bg2, { ViMode, FileNameBlock, Git, Diagnostics })
 
 local RightComponent = utils.surround(
 	{ "", "" },
-	colors.dark.bg2,
+	colors.bg2,
 	{ LspActive, FileType, Ruler, Space, ScrollBar }
 )
 
@@ -73,7 +73,5 @@ local Statusline = {
 	Align,
 	RightComponent,
 }
-
-vim.cmd("hi StatusLine guibg=" .. colors.dark.bg0)
 
 return Statusline
