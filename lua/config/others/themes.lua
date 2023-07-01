@@ -13,7 +13,7 @@ local tokyonight = {
 
 -- One Dark
 local onedark = {
-	style = "dark",
+	style = "darker",
 	term_colors = true,
 	code_style = {
 		comments = "italic",
