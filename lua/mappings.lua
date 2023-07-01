@@ -20,12 +20,9 @@ map("n", "<leader>gc", ":Telescope git_commits<CR>", options) -- Commits
 map("n", "<leader>gf", ":Telescope git_files<CR>", options) -- Files
 
 -- NvTerm
-map("n", "<leader>t", ":lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
+map("n", "<leader>th", ":lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
 map("n", "<leader>tv", ":lua toggle_terminal(2)<CR>", options) -- Vertical Terminal
 map("n", "<leader>tf", ":lua toggle_terminal(3)<CR>", options) -- Floating Terminal
-
--- Theme Picker
-map("n", "<leader>th", ":Telescope colorscheme<CR>", options)
 
 -- Neo Tree
 map("n", "<leader>fe", ":Neotree toggle<CR>", options) -- Toggle
@@ -58,7 +55,9 @@ map("n", "<C-x>", "yydd", options) -- Copy and Cut
 map("n", "<C-e>", ":Neotree toggle left filesystem<CR>", options) -- Filen Explorer
 map("n", "<C-g>", ":Neotree toggle left git_status<CR>", options) -- Source Control
 map("n", "<C-t>", ":Neotree toggle left document_symbols<CR>", options) -- Document Symbols
-map("n", "<S-t>", ":Telescope lsp_document_symbols<CR>", options)
+map("n", "<S-t>", ":Telescope lsp_document_symbols<CR>", options) -- Search Document Symbols
+map("n", "<C-p>", ":Telescope fd<CR>", options) -- Find Files
+map("n", "<C-`>", ":lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
 
 -- Insert Mode Keybinds
 -- Buffers
@@ -77,6 +76,12 @@ map("i", "<C-c>", "<C-o>yy", options) -- Copy line to system clipboard
 map("i", "<C-v>", "<C-o>p", options) -- Past from system clipboard
 map("i", "<C-Backspace>", "<C-W>", options) -- Delete word before cursor
 map("i", "<C-x>", "<esc>yyddi", options) -- Copy and Cut
+map("i", "<C-e>", "<esc>:Neotree toggle left filesystem<CR>", options) -- Filen Explorer
+map("i", "<C-g>", "<esc>:Neotree toggle left git_status<CR>", options) -- Source Control
+map("i", "<C-t>", "<esc>:Neotree toggle left document_symbols<CR>", options) -- Document Symbols
+map("i", "<S-t>", "<esc>:Telescope lsp_document_symbols<CR>", options) -- Search Document Symbols
+map("i", "<C-p>", "<esc>:Telescope fd<CR>", options) -- Find Files
+map("i", "<C-`>", "<C-o>:lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
 
 -- Visual Mode
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", options) -- Move selected block up
@@ -90,3 +95,4 @@ map("v", "<C-x>", "d", options) -- Copy and Cut block
 
 -- Terminal
 map("t", "<C-q>", "<C-\\><C-n>:q<CR>", options) -- Close terminal in terminal mode
+map("t", "<C-`>", "<C-\\><C-n>:lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
