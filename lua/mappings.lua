@@ -14,7 +14,7 @@ end
 
 -- Normal Mode Keybinds
 -- Git
-map("n", "<leader>gs", ":Telescope git_status<CR>", options) -- Status
+map("n", "<leader>gs", ":Neotree toggle left git_status<CR>", options) -- Status
 map("n", "<leader>gb", ":Telescope git_branches<CR>", options) -- Branches
 map("n", "<leader>gc", ":Telescope git_commits<CR>", options) -- Commits
 map("n", "<leader>gf", ":Telescope git_files<CR>", options) -- Files
@@ -42,6 +42,10 @@ map("n", "<C-w>", ":bdelete<CR>", options) -- Close current buffer
 map("n", "<S-tab>", ":bp<CR>", options) -- Goto previous buffer
 map("n", "<tab>", ":bn<CR>", options) -- Goto next buffer
 
+-- Document Symbols
+map("n", "<leader>oe", ":Neotree toggle left document_symbols<CR>", options)
+map("n", "<leader>os", ":Telescope lsp_document_symbols<CR>", options)
+
 -- Common Keybinds
 map("n", "<esc>", ":noh<CR>", options) -- Clear highlighting
 map("n", "<C-s>", ":w!<CR>", options) -- Save
@@ -51,9 +55,10 @@ map("n", "<C-a>", "ggVG<CR>", options) -- Select all
 map("n", "<C-c>", "yy", options) -- Copy to system clipboard
 map("n", "<C-v>", "p", options) -- Paste to system clipboard
 map("n", "<C-x>", "yydd", options) -- Copy and Cut
-map("n", "<C-e>", ":Neotree toggle left filesystem<CR>", options)
-map("n", "<C-g>", ":Neotree toggle left git_status<CR>", options)
-map("n", "<C-t>", ":Neotree toggle left document_symbols<CR>", options)
+map("n", "<C-e>", ":Neotree toggle left filesystem<CR>", options) -- Filen Explorer
+map("n", "<C-g>", ":Neotree toggle left git_status<CR>", options) -- Source Control
+map("n", "<C-t>", ":Neotree toggle left document_symbols<CR>", options) -- Document Symbols
+map("n", "<S-t>", ":Telescope lsp_document_symbols<CR>", options)
 
 -- Insert Mode Keybinds
 -- Buffers
