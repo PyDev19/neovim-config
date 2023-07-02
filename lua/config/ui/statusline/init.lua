@@ -18,7 +18,7 @@ local Ruler = {
 	-- %c = column number
 	-- %P = percentage through file of displayed window
 	Space,
-	{ provider = "%l:%2c %P", hl = { bg = colors.purple, fg = colors.bg2 } },
+	{ provider = "%l:%2c %P", hl = { bg = colors.red, fg = colors.bg2, bold = true } },
 }
 
 local ScrollBar = {
@@ -64,11 +64,11 @@ local LspActive = {
 	Seperator,
 }
 
-local LeftComponent_a = utils.surround({ "", "" }, colors.purple, { ViMode })
+local LeftComponent_a = utils.surround({ "", "" }, colors.red, { ViMode })
 local LeftComponent_b = utils.surround({ "", "" }, colors.bg2, { FileNameBlock, Git, Diagnostics })
 
 local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { LspActive, FileType, ScrollBar })
-local RightComponent_b = utils.surround({ "", "" }, colors.purple, { Ruler })
+local RightComponent_b = utils.surround({ "", "" }, colors.red, { Ruler })
 
 local Statusline = {
 	LeftComponent_a,

@@ -27,8 +27,10 @@ local onedark = {
 		undercurl = true,
 		background = false,
 	},
-	lualine = {
-		transparent = true,
+	transparent = {
+		lualine = true,
+		tabline = true,
+		statusline = true,
 	},
 }
 
@@ -86,7 +88,7 @@ local catppuccin = {
 	integrations = {
 		barbar = true,
 		noice = true,
-		mason = true
+		mason = true,
 	},
 }
 
