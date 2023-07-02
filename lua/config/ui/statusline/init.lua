@@ -1,6 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
-local colors = require('onedark.colors')
+local colors = require("onedark.colors")
 
 local ViMode = require("config.ui.statusline.vimode")
 local FileNameBlock = require("config.ui.statusline.filenameblock")
@@ -17,20 +17,24 @@ local Ruler = {
 	-- %L = number of lines in the buffer
 	-- %c = column number
 	-- %P = percentage through file of displayed window
-	provider = "%7(%l/%3L%):%2c %P",
+	Space,
+	{ provider = "%l:%2c %P", hl = { bg = colors.purple, fg = colors.bg2 } },
 }
 
 local ScrollBar = {
 	static = {
 		sbar = { "🭶", "🭷", "🭸", "🭹", "🭺", "🭻" },
 	},
-	provider = function(self)
-		local curr_line = vim.api.nvim_win_get_cursor(0)[1]
-		local lines = vim.api.nvim_buf_line_count(0)
-		local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
-		return string.rep(self.sbar[i], 2)
-	end,
-	hl = { fg = utils.get_highlight("Function").fg, bg = utils.get_highlight("Folded").bg },
+	{
+		provider = function(self)
+			local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+			local lines = vim.api.nvim_buf_line_count(0)
+			local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
+			return string.rep(self.sbar[i], 2)
+		end,
+		hl = { fg = utils.get_highlight("Function").fg, bg = utils.get_highlight("Folded").bg },
+	},
+	Space,
 }
 
 local LspActive = {
@@ -60,18 +64,18 @@ local LspActive = {
 	Seperator,
 }
 
-local LeftComponent = utils.surround({ "", "" }, colors.bg2, { ViMode, FileNameBlock, Git, Diagnostics })
+local LeftComponent_a = utils.surround({ "", "" }, colors.purple, { ViMode })
+local LeftComponent_b = utils.surround({ "", "" }, colors.bg2, { FileNameBlock, Git, Diagnostics })
 
-local RightComponent = utils.surround(
-	{ "", "" },
-	colors.bg2,
-	{ LspActive, FileType, Ruler, Space, ScrollBar }
-)
+local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { LspActive, FileType, ScrollBar })
+local RightComponent_b = utils.surround({ "", "" }, colors.purple, { Ruler })
 
 local Statusline = {
-	LeftComponent,
+	LeftComponent_a,
+	LeftComponent_b,
 	Align,
-	RightComponent,
+	RightComponent_a,
+	RightComponent_b,
 }
 
 return Statusline

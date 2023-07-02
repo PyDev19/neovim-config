@@ -1,3 +1,5 @@
+local colors = require("onedark.colors")
+
 local ModeNames = {
 	n = "Normal",
 	no = "Normal",
@@ -59,14 +61,16 @@ local ViMode = {
 		mode_names = ModeNames,
 		mode_colors = ModeColors,
 	},
-	provider = function(self)
-		return "%2(" .. self.mode_names[self.mode] .. "%)"
-	end,
-	-- Same goes for the highlight. Now the foreground will change according to the current mode.
-	hl = function(self)
-		local mode = self.mode:sub(1, 1) -- get only the first mode character
-		return { fg = self.mode_colors[mode], bold = true }
-	end,
+	{
+		provider = function(self)
+			return "%2(" .. self.mode_names[self.mode] .. " %)"
+		end,
+		-- Same goes for the highlight. Now the foreground will change according to the current mode.
+		hl = function(self)
+			local mode = self.mode:sub(1, 1) -- get only the first mode character
+			return { bg = colors.purple, fg = colors.bg2, bold = true }
+		end,
+	},
 	-- Re-evaluate the component only on ModeChanged event!
 	-- Also allows the statusline to be re-evaluated when entering operator-pending mode
 	update = {
