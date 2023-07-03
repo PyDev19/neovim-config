@@ -79,7 +79,7 @@ map("i", "<C-x>", "<esc>yyddi", options) -- Copy and Cut
 map("i", "<C-e>", "<esc>:Neotree toggle left filesystem<CR>", options) -- Filen Explorer
 map("i", "<C-g>", "<esc>:Neotree toggle left git_status<CR>", options) -- Source Control
 map("i", "<C-t>", "<esc>:Neotree toggle left document_symbols<CR>", options) -- Document Symbols
-map("i", "<S-t>", "<esc>:Telescope lsp_document_symbols<CR>", options) -- Search Document Symbols
+map("i", "<A-t>", "<esc>:Telescope lsp_document_symbols<CR>", options) -- Search Document Symbols
 map("i", "<C-p>", "<esc>:Telescope fd<CR>", options) -- Find Files
 map("i", "<C-`>", "<C-o>:lua toggle_terminal(1)<CR>", options) -- Horizontal Terminal
 
