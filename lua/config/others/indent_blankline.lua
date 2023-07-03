@@ -8,6 +8,7 @@ local options = {
 		"TelescopePrompt",
 		"TelescopeResults",
 		"mason",
+		"alpha",
 		"",
 	},
 	buftype_exclude = { "terminal" },
