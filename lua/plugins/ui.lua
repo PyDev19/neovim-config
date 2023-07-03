@@ -12,6 +12,7 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.1",
 		cmd = { "Telescope" },
+		ft = { "mason" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-project.nvim",
@@ -24,6 +25,22 @@ local plugins = {
 		end,
 	},
 	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("dressing").setup({
+				input = {
+					default_prompt = "➤ ",
+					win_options = { winhighlight = "Normal:Normal,NormalNC:Normal" },
+				},
+				select = {
+					backend = { "telescope", "builtin" },
+					builtin = { win_options = { winhighlight = "Normal:Normal,NormalNC:Normal" } },
+				},
+			})
+		end,
+	},
+	{
 		"willothy/nvim-cokeline",
 		event = "VeryLazy",
 		dependencies = {
@@ -32,7 +49,7 @@ local plugins = {
 		config = function()
 			local options = require("config.ui.cokeline")
 			require("cokeline").setup(options)
-		end
+		end,
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
