@@ -5,7 +5,7 @@ local plugins = {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "InsertEnter",
+		event = "BufRead",
 		config = function()
 			local options = require("config.others.indent_blankline")
 			require("indent_blankline").setup(options)
