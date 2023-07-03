@@ -27,22 +27,11 @@ local onedark = {
 		undercurl = true,
 		background = false,
 	},
-	transparent = {
-		lualine = true,
-		tabline = true,
-		statusline = true,
-	},
-}
-
--- One Dark Pro
-local onedark_pro = {
-	styles = {
-		comments = "italic",
-		keywords = "italic",
-		constants = "bold",
-		conditionals = "italic",
-		parameters = "italic",
-	},
+	-- transparent = {
+	-- 	lualine = true,
+	-- 	tabline = true,
+	-- 	statusline = true,
+	-- },
 }
 
 -- Gruvbox
@@ -98,12 +87,10 @@ local function get_theme_opts(id)
 	elseif id == 2 then
 		return onedark
 	elseif id == 3 then
-		return onedark_pro
-	elseif id == 4 then
 		return gruvbox
-	elseif id == 5 then
+	elseif id == 4 then
 		return kanagawa
-	elseif id == 6 then
+	elseif id == 5 then
 		return catppuccin
 	end
 end
