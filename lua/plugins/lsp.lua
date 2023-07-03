@@ -37,6 +37,7 @@ local plugins = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/nvim-cmp",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			require("config.lsp.completion")
