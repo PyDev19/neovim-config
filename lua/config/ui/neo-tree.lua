@@ -43,12 +43,6 @@ local options = {
 			["<S-tab>"] = "prev_source",
 			["<tab>"] = "next_source",
 			["<CR>"] = "toggle_node",
-			["a"] = {
-				"add",
-				config = {
-					show_path = "relative",
-				},
-			},
 		},
 	},
 	git_status = {
@@ -62,6 +56,7 @@ local options = {
 				["c"] = "git_commit",
 				["p"] = "git_push",
 				["gg"] = "git_commit_and_push",
+				["<CR>"] = "open"
 			},
 		},
 	},
@@ -101,6 +96,12 @@ local options = {
 		window = {
 			mappings = {
 				["<CR>"] = "open",
+				["a"] = {
+					"add",
+					config = {
+						show_path = "relative",
+					},
+				},
 			},
 		},
 		follow_current_file = true,
