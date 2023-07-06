@@ -12,7 +12,6 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.1",
 		cmd = { "Telescope" },
-		ft = { "mason" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-project.nvim",
@@ -59,6 +58,7 @@ local plugins = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
+			"mrbjarksen/neo-tree-diagnostics.nvim",
 		},
 		config = function()
 			local options = require("config.ui.neo-tree")
@@ -169,11 +169,18 @@ local plugins = {
 				callback = function()
 					local stats = require("lazy").stats()
 					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-					dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+					dashboard.section.footer.val = "󰚥 Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
 					pcall(vim.cmd.AlphaRedraw)
 				end,
 			})
 		end,
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = { "LazyGit" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 }
 
