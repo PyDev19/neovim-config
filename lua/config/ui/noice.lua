@@ -1,4 +1,8 @@
 local options = {
+	cmdline = {
+		enabled = true, -- enables the Noice cmdline UI
+		view = "cmdline",
+	},
 	lsp = {
 		override = {
 			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
