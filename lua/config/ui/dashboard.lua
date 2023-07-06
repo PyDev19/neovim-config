@@ -19,18 +19,17 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "󰃀 " .. " Open Projects", ":Telescope project <CR>"),
 	dashboard.button("c", " " .. " Config", ":e $MYVIMRC | cd " .. config_path .. "<CR>"),
 	dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load({last = true}) <cr>]]),
-	dashboard.button("l", "⚡" .. " Lazy", ":Lazy<CR>"),
+	dashboard.button("l", "󰒲" .. " Lazy", ":Lazy<CR>"),
 	dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
 
 for _, button in ipairs(dashboard.section.buttons.val) do
-	button.opts.hl = "AlphaButtons"
-	button.opts.hl_shortcut = "AlphaShortcut"
+	button.opts.hl = "Function"
+	button.opts.hl_shortcut = "Keyword"
 end
 
-dashboard.section.header.opts.hl = "AlphaHeader"
-dashboard.section.buttons.opts.hl = "AlphaButtons"
-dashboard.section.footer.opts.hl = "AlphaFooter"
+dashboard.section.header.opts.hl = "Type"
+dashboard.section.footer.opts.hl = "Float"
 dashboard.opts.layout[1].val = 8
 
 return dashboard
