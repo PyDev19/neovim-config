@@ -50,7 +50,7 @@ local Diagnostics = {
 		name = "heirline_diagnostics",
 		callback = function()
 			vim.defer_fn(function()
-				require("telescope.builtin").diagnostics()
+				vim.cmd("Neotree diagnostics toggle bottom")
 			end, 100)
 		end,
 	},
