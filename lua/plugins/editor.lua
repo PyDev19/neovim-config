@@ -13,7 +13,7 @@ local plugins = {
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "BufRead",
+		event = "InsertEnter",
 		config = function()
 			require("Comment").setup()
 		end,
