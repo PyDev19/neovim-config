@@ -1,4 +1,3 @@
-local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 local colors = require("onedark.colors")
 
@@ -6,7 +5,9 @@ local ViMode = require("config.ui.statusline.vimode")
 local FileNameBlock = require("config.ui.statusline.filenameblock")
 local Git = require("config.ui.statusline.git")
 local Diagnostics = require("config.ui.statusline.diagnostics")
-local FileType = require("config.ui.statusline.others")
+local FileType = require("config.ui.statusline.filetype")
+local LspActive = require("config.ui.statusline.lspactive")
+-- local PythonEnv = require("config.ui.statusline.pythonenv")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
@@ -37,43 +38,15 @@ local ScrollBar = {
 	Space,
 }
 
-local LspActive = {
-	condition = conditions.lsp_attached,
-	update = {
-		"LspAttach",
-		"LspDetach",
-	},
-	{
-		provider = function()
-			local names = {}
-			for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-				table.insert(names, server.name)
-			end
-			return table.concat(names, " ")
-		end,
-		hl = { fg = "green", bold = true },
-		on_click = {
-			name = "heirline_lsp",
-			callback = function()
-				vim.defer_fn(function()
-					vim.cmd.LspInfo()
-				end, 100)
-			end,
-		},
-	},
-	Seperator,
-}
-
 local LeftComponent_a = utils.surround({ "", "" }, colors.red, { ViMode })
-local LeftComponent_b = utils.surround({ "", "" }, colors.bg2, { FileNameBlock, Git, Diagnostics })
+local LeftComponent_b = utils.surround({ "", "" }, colors.bg2, { FileNameBlock, Git, Diagnostics, Align })
 
-local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { LspActive, FileType, ScrollBar })
+local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { LspActive, FileType, ScrollBar })
 local RightComponent_b = utils.surround({ "", "" }, colors.red, { Ruler })
 
 local Statusline = {
 	LeftComponent_a,
 	LeftComponent_b,
-	Align,
 	RightComponent_a,
 	RightComponent_b,
 }
