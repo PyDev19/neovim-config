@@ -3,14 +3,15 @@ local highlights = require("neo-tree.ui.highlights")
 local options = {
 	auto_clean_after_session_restore = true,
 	close_if_last_window = true,
-	sources = { "filesystem", "git_status", "document_symbols" },
+	sources = { "filesystem", "git_status", "buffers", "document_symbols", "diagnostics"},
 	source_selector = {
 		winbar = true,
 		content_layout = "center",
 		sources = {
-			{ source = "filesystem", display_name = "" .. " File" },
+			{ source = "filesystem", display_name = "" .. " Files" },
 			{ source = "git_status", display_name = "󰊢" .. " Git" },
 			{ source = "document_symbols", display_name = "" .. " Symbols" },
+			{ source = "diagnostics", display_name = "" .. " Diagnostics" },
 		},
 	},
 	default_component_configs = {
@@ -56,7 +57,7 @@ local options = {
 				["c"] = "git_commit",
 				["p"] = "git_push",
 				["gg"] = "git_commit_and_push",
-				["<CR>"] = "open"
+				["<CR>"] = "open",
 			},
 		},
 	},
@@ -102,11 +103,52 @@ local options = {
 						show_path = "relative",
 					},
 				},
+				["<C-c>"] = "copy_to_clipboard",
+				["<C-x>"] = "cut_to_clipboard",
+				["<C-v>"] = "paste_from_clipboard",
+				["<del>"] = "delete",
 			},
 		},
 		follow_current_file = true,
 		hijack_netrw_behavior = "open_current",
 		use_libuv_file_watcher = true,
+	},
+	diagnostics = {
+		components = {
+			linenr = function(config, node)
+				local lnum = tostring(node.extra.diag_struct.lnum + 1)
+				local pad = string.rep(" ", 4 - #lnum)
+				return {
+					{
+						text = pad .. lnum,
+						highlight = "LineNr",
+					},
+					{
+						text = "▕ ",
+						highlight = "NeoTreeDimText",
+					},
+				}
+			end,
+		},
+		renderers = {
+			file = {
+				{ "indent" },
+				{ "icon" },
+				{ "grouped_path" },
+				{ "name", highlight = "NeoTreeFileNameOpened" },
+				{ "diagnostic_count", highlight = "NeoTreeDimText", severity = "Error", right_padding = 0 },
+				{ "diagnostic_count", highlight = "NeoTreeDimText", severity = "Warn", right_padding = 0 },
+				{ "diagnostic_count", highlight = "NeoTreeDimText", severity = "Info", right_padding = 0 },
+				{ "diagnostic_count", highlight = "NeoTreeDimText", severity = "Hint", right_padding = 0 },
+				{ "clipboard" },
+			},
+			diagnostic = {
+				{ "indent" },
+				{ "icon" },
+				{ "linenr" },
+				{ "name" },
+			},
+		},
 	},
 	event_handlers = {
 		{
