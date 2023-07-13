@@ -41,7 +41,7 @@ local plugins = {
 	},
 	{
 		"willothy/nvim-cokeline",
-		event = "VeryLazy",
+		event = "VimEnter",
 		dependencies = {
 			"DaikyXendo/nvim-material-icon",
 		},
@@ -74,10 +74,17 @@ local plugins = {
 	},
 	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			{
+				"rcarriga/nvim-notify",
+				config = function()
+					require("notify").setup({
+						timeout = 1000,
+						top_down = false,
+					})
+				end,
+			},
 		},
 		config = function()
 			local options = require("config.ui.noice")
@@ -181,6 +188,18 @@ local plugins = {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+	},
+	{
+		"linux-cultist/venv-selector.nvim",
+		event = "VeryLazy",
+		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("venv-selector").setup({
+				auto_refresh = true,
+				name = { "env", "venv" },
+				parents = 4,
+			})
+		end,
 	},
 }
 
