@@ -5,8 +5,10 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
 	lint.selene,
 	lint.flake8.with({ extra_args = { "--max-line-length", "500" } }),
+	lint.shellcheck,
 	formatting.stylua,
 	formatting.black.with({ extra_args = { "--line-length=120" } }),
+	formatting.beautysh
 }
 
 null_ls.setup({
