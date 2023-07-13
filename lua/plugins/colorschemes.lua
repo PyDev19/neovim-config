@@ -9,8 +9,8 @@ local plugins = {
 		end,
 	},
 	{
-		"navarasu/onedark.nvim",
-		--lazy = true,
+		"PyDev19/onedark.nvim",
+		branch = "new_transparent_options",
 		config = function()
 			local options = require("config.others.themes").get_theme_opts(2)
 			require("onedark").setup(options)
