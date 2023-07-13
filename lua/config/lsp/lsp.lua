@@ -51,12 +51,13 @@ lspconfig.pyright.setup({
 	settings = {
 		pyright = {
 			autoImportCompletion = true,
+			disableOrganizeImports = false,
 		},
 		python = {
 			analysis = {
 				autoSearchPaths = true,
-				diagnosticMode = "openFilesOnly",
-				useLibraryCodeForTypes = false,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
 				typeCheckingMode = "off",
 			},
 		},
