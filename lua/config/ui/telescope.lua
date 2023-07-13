@@ -50,7 +50,11 @@ local options = {
 			n = { ["q"] = require("telescope.actions").close },
 		},
 	},
-
+	pickers = {
+		find_files = {
+			no_ignore = true
+		}
+	},
 	extensions_list = { "themes", "terms" },
 }
 
