@@ -27,11 +27,11 @@ local onedark = {
 		undercurl = true,
 		background = false,
 	},
-	-- transparent = {
-	-- 	lualine = true,
-	-- 	tabline = true,
-	-- 	statusline = true,
-	-- },
+	transparent = {
+		lualine = true,
+		tabline = true,
+		statusline = true,
+	},
 }
 
 -- Gruvbox
