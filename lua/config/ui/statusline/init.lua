@@ -7,7 +7,7 @@ local Git = require("config.ui.statusline.git")
 local Diagnostics = require("config.ui.statusline.diagnostics")
 local FileType = require("config.ui.statusline.filetype")
 local LspActive = require("config.ui.statusline.lspactive")
--- local PythonEnv = require("config.ui.statusline.pythonenv")
+local PythonEnv = require("config.ui.statusline.pythonenv")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
@@ -41,7 +41,7 @@ local ScrollBar = {
 local LeftComponent_a = utils.surround({ "", "" }, colors.red, { ViMode })
 local LeftComponent_b = utils.surround({ "", "" }, colors.bg2, { FileNameBlock, Git, Diagnostics, Align })
 
-local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { LspActive, FileType, ScrollBar })
+local RightComponent_a = utils.surround({ "", "" }, colors.bg2, { PythonEnv, LspActive, FileType, ScrollBar })
 local RightComponent_b = utils.surround({ "", "" }, colors.red, { Ruler })
 
 local Statusline = {
