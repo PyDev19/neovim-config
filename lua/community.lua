@@ -11,4 +11,5 @@ return {
     { import = "astrocommunity.pack.python.basedpyright" },
     { import = "astrocommunity.pack.python.ruff" },
     { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+    { import = "astrocommunity.pack.bash" }
 }
