@@ -37,7 +37,7 @@ return {
         },
         -- enable servers that you already have installed without mason
         servers = {
-            -- "pyright"
+            "haskell-language-server"
         },
         -- customize language server configuration passed to `vim.lsp.config`
         -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
