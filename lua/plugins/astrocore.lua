@@ -47,10 +47,6 @@ return {
                 softtabstop = 4,
                 shiftwidth = 4,
                 expandtab = true,
-                shell = "nu",
-                shellcmdflag = "-c",
-                shellquote = "",
-                shellxquote = "",
             },
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)
@@ -63,9 +59,6 @@ return {
         mappings = {
             -- first key is the mode
             n = {
-                -- second key is the lefthand side of the map
-
-                -- navigate buffer tabs
                 ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
                 ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
@@ -79,12 +72,12 @@ return {
                     desc = "Close buffer from tabline",
                 },
 
-                -- tables with just a `desc` key will be registered with which-key if it's installed
-                -- this is useful for naming menus
-                -- ["<Leader>b"] = { desc = "Buffers" },
-
-                -- setting a mapping to false will disable it
-                -- ["<C-S>"] = false,
+                ["<M-Down>"] = { ":m .+1<CR>==", desc = "Move line down" },
+                ["<M-Up>"] = { ":m .-2<CR>==", desc = "Move line up" },
+            },
+            v = {
+                ["<M-Down>"] = { ":m '>+1<CR>gv=gv", desc = "Move block down" },
+                ["<M-Up>"] = { ":m '<-2<CR>gv=gv", desc = "Move block up" },
             },
         },
     },
